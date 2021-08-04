@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  pointer-events: none;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  border: 2px solid orange;
+  text-align: center;
+  h1 {
+    margin: 10px;
+  }
+  label {
+    font-size: 1.25rem;
+  }
+  input[type="text"] {
+    margin-top: 5px;
+    font-size: 1.25rem;
+  }
+  input[type="email"] {
+    font-size: 1.25rem;
+    margin-top: 5px;
+  }
+  button {
+    font-size: 1.25rem;
+    margin: 10px;
+    padding: 5px 20px;
+  }
+
+  table {
+    border: 1px solid gray;
+    margin: 20px auto;
+    width: 90%;
+  }
+  th {
+    border: 1px solid rgb(231, 191, 14);
+  }
+  td {
+    border: 1px solid rgb(92, 76, 1);
+  }
+  img {
+    pointer-events: none;
+  }
+}

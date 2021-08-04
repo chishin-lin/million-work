@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 50px auto;
+  border: 2px solid orange;
+  text-align: center;
+}
+
+.container h1 {
+  margin: 10px;
+}
+
+.container label {
+  font-size: 1.25rem;
+}
+
+.container input[type="text"] {
+  margin-top: 5px;
+  font-size: 1.25rem;
+}
+
+.container input[type="email"] {
+  font-size: 1.25rem;
+  margin-top: 5px;
+}
+
+.container button {
+  font-size: 1.25rem;
+  margin: 10px;
+  padding: 5px 20px;
+}
+
+.container table {
+  border: 1px solid gray;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.container th {
+  border: 1px solid #e7bf0e;
+}
+
+.container td {
+  border: 1px solid #5c4c01;
+}
+/*# sourceMappingURL=style.css.map */
