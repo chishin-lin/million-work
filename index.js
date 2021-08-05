@@ -27,6 +27,7 @@ add.addEventListener("click", (e) => {
 
   let numTd = document.createElement("td");
   numTd.innerText = num + 1;
+  let a = num;
   num += 1;
 
   data.appendChild(numTd);
@@ -72,19 +73,19 @@ add.addEventListener("click", (e) => {
 
       editElement.innerHTML = '<img src="./icons8-tick-box-24.png" alt="">';
 
-      name.innerHTML = `<input id="editName" type="text" value=${name.innerText}>`;
-      phone.innerHTML = `<input id="editPhone" type="text" value=${phone.innerText}>`;
-      email.innerHTML = `<input id="editEmail" type="email" value=${email.innerText}>`;
+      name.innerHTML = `<input id="editName${a}" type="text" value=${name.innerText}>`;
+      phone.innerHTML = `<input id="editPhone${a}" type="text" value=${phone.innerText}>`;
+      email.innerHTML = `<input id="editEmail${a}" type="email" value=${email.innerText}>`;
 
       isEdit = false;
     } else {
       editElement.innerHTML = '<img src="./icons8-edit-30.png" alt="edit">';
 
-      let nameEdit = document.getElementById("editName").value;
+      let nameEdit = document.getElementById(`editName${a}`).value;
       name.innerHTML = nameEdit;
-      let phoneEdit = document.getElementById("editPhone").value;
+      let phoneEdit = document.getElementById(`editPhone${a}`).value;
       phone.innerHTML = phoneEdit;
-      let emailEdit = document.getElementById("editEmail").value;
+      let emailEdit = document.getElementById(`editEmail${a}`).value;
       email.innerHTML = emailEdit;
       isEdit = true;
     }
