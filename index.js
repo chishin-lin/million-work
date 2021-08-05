@@ -43,7 +43,7 @@ add.addEventListener("click", (e) => {
 
   //edit button
   let editElement = document.createElement("td");
-  let edit = true;
+  let isEdit = true;
   editElement.innerHTML = '<img src="./icons8-edit-30.png" alt="edit">';
   //toggo做開關
   editElement.addEventListener("click", (e) => {
@@ -52,7 +52,7 @@ add.addEventListener("click", (e) => {
     let phone = btnElement[2];
     let email = btnElement[3];
 
-    if (edit) {
+    if (isEdit) {
       /*原定做成一個編輯表單，編輯完成送出，表格在做接收
       console出來表格不會顯示在畫面，感覺多此一舉
       let editForm = document.createElement("form");
@@ -76,7 +76,7 @@ add.addEventListener("click", (e) => {
       phone.innerHTML = `<input id="editPhone" type="text" value=${phone.innerText}>`;
       email.innerHTML = `<input id="editEmail" type="email" value=${email.innerText}>`;
 
-      edit = false;
+      isEdit = false;
     } else {
       editElement.innerHTML = '<img src="./icons8-edit-30.png" alt="edit">';
 
@@ -86,22 +86,22 @@ add.addEventListener("click", (e) => {
       phone.innerHTML = phoneEdit;
       let emailEdit = document.getElementById("editEmail").value;
       email.innerHTML = emailEdit;
-      edit = true;
+      isEdit = true;
     }
   });
 
   data.appendChild(editElement);
 
   //delete button
-  let deleButton = document.createElement("td");
-  deleButton.classList.add("dele"); //加入class標籤
-  deleButton.innerHTML = '<img src="./icons8-trash-can-24.png" alt="trash">';
-  deleButton.addEventListener("click", (e) => {
-    // let deleBtn = e.target.parentElement; ->會有bug
-    let deleBtn = e.currentTarget.parentElement; //綁定在父層
-    deleBtn.remove();
+  let delButton = document.createElement("td");
+  delButton.classList.add("del"); //加入class標籤
+  delButton.innerHTML = '<img src="./icons8-trash-can-24.png" alt="trash">';
+  delButton.addEventListener("click", (e) => {
+    // let delBtn = e.target.parentElement; ->會有bug
+    let delAll = e.currentTarget.parentElement; //綁定在父層
+    delAll.remove();
   });
-  data.appendChild(deleButton);
+  data.appendChild(delButton);
 
   nameElement.value = "";
   phoneElement.value = "";
