@@ -11,17 +11,24 @@ add.addEventListener("click", (e) => {
   let email = emailElement.value;
 
   if (name === "") {
-    //當todoText無輸入字樣送出將顯示提醒：Please enter some text
+    //當name無輸入字樣送出將顯示提醒
     alert("請輸入姓名！");
-    return; //return 表達式會終止主函式執行
+    return;
   }
 
   let data = document.createElement("tr");
   data.classList.add("data");
-  //number
+
+  //number->將編號而外按照順序排列，但此處的no.是id因此作廢
+  /*let numTd = document.createElement("td");
+    for (let i = 1; i <= data.querySelectorAll().length; i++) {
+      numTd.innerText = i;
+    }*/
+
   let numTd = document.createElement("td");
   numTd.innerText = num + 1;
   num += 1;
+
   data.appendChild(numTd);
   //name,phone,email
   let nameTd = document.createElement("td");
@@ -36,26 +43,51 @@ add.addEventListener("click", (e) => {
 
   //edit button
   let editElement = document.createElement("td");
-  editElement.classList.add("edit"); //加入class標籤
+  let edit = true;
   editElement.innerHTML = '<img src="./icons8-edit-30.png" alt="edit">';
   //toggo做開關
   editElement.addEventListener("click", (e) => {
-    let btnElement = e.target.parentElement;
-    // let data = btnElement.querySelectorAll("td");
-    let name = data[1];
-    let phone = data[2];
-    let email = data[3];
+    let btnElement = e.currentTarget.parentElement.querySelectorAll("td");
+    let name = btnElement[1];
+    let phone = btnElement[2];
+    let email = btnElement[3];
 
-    if (
-      editElement.innerHTML === '<img src="./icons8-edit-30.png" alt="edit">'
-    ) {
+    if (edit) {
+      /*原定做成一個編輯表單，編輯完成送出，表格在做接收
+      console出來表格不會顯示在畫面，感覺多此一舉
+      let editForm = document.createElement("form");
+
+      let editName = document.createElement("input");
+      editName.innerHTML = `<input id="editName" type="text" value=${name.innerText}>`;
+      let editPhone = document.createElement("input");
+      editPhone.innerHTML = phone;
+      let editEmail = document.createElement("input");
+      editEmail.iinnerHTML = email;
+
+      editForm.appendChild(editName);
+      editForm.appendChild(editPhone);
+      editForm.appendChild(editEmail);
+      listData.appendChild(editForm);
+      console.log(listData);*/
+
       editElement.innerHTML = '<img src="./icons8-tick-box-24.png" alt="">';
-      name.innerHTML = `<input id="name" type="text" value="name" name="後端位置" />`;
+
+      name.innerHTML = `<input id="editName" type="text" value=${name.innerText}>`;
+      phone.innerHTML = `<input id="editPhone" type="text" value=${phone.innerText}>`;
+      email.innerHTML = `<input id="editEmail" type="email" value=${email.innerText}>`;
+
+      edit = false;
     } else {
       editElement.innerHTML = '<img src="./icons8-edit-30.png" alt="edit">';
-    }
 
-    // name.innerHTML = '<input id="name" type="text" name="後端位置" />';
+      let nameEdit = document.getElementById("editName").value;
+      name.innerHTML = nameEdit;
+      let phoneEdit = document.getElementById("editPhone").value;
+      phone.innerHTML = phoneEdit;
+      let emailEdit = document.getElementById("editEmail").value;
+      email.innerHTML = emailEdit;
+      edit = true;
+    }
   });
 
   data.appendChild(editElement);
